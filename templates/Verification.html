@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="/static/css/verfication.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <h1>Booking Confirmation</h1>
+    <div id="confirmation">
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Phone Number:</strong> {{ phone }}</p>
+        <p><strong>Bus Route:</strong> {{ bus_route }}</p>
+        <p><strong>Adults:</strong> {{ adults }}</p>
+        <p><strong>Children:</strong> {{ children }}</p>
+        <p><strong>Total Amount:</strong> {{ total_amount }}</p>
+    </div>
+    <input type="hidden" id="total_amount" value="{{ total_amount }}">
+    <button id="rzp-button">Pay Now</button>
+    <script>
+      // Function to open Razorpay checkout
+      function openRazorpayCheckout(amount) {
+          var options = {
+              "key": "rzp_test_HNkKOibYblrmQb", // Replace with your actual Razorpay API Key
+              "amount": amount * 100,    // Amount in paise
+              "currency": "INR",
+              "name": "Booking Confirmation",
+              "description": "Payment for Bus Booking",
+              "handler": function(response) {
+                if (response.razorpay_payment_id) {
+                  // Payment was successful
+                  alert("Payment successful: " + response.razorpay_payment_id);
+                  // Redirect to success page
+                  window.location.href = "/success";
+              } else {
+                  // Payment was not successful
+                  alert("Payment Failed. Reason: " + response.error.description);
+                  // Redirect to unsuccessful page
+                  window.location.href = "/failed";
+              }
+          },
+              "prefill": {
+                  "name": "{{ name }}",
+                  "contact": "{{ phone }}"
+              },
+              "notes": {
+                  "booking_id": "123456"
+              }
+          };
+  
+          var rzp = new Razorpay(options);
+          rzp.open();
+      }
+  
+      // Attach a click event to the button
+      document.getElementById("rzp-button").addEventListener("click", function() {
+          var totalAmount = parseFloat(document.getElementById("total_amount").value);
+          openRazorpayCheckout(totalAmount);
+      });
+  </script>
+
+
+</body>
+</html>

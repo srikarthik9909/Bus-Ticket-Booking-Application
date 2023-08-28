@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Home page</title>
+    <link rel="stylesheet" href="/static/css/home.css">
+  </head>
+  <body>
+    <h1>Bus Ticket Booking</h1>
+    <div id="info">
+      <form action="submit" method="post">
+        <!---------------------------------------------------------------------------------------------------->
+        <p><label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name"></p>
+        <!---------------------------------------------------------------------------------------------------->
+        <p><label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your number including (+91)"></p>
+        <!---------------------------------------------------------------------------------------------------->
+        <p><label for="bus_route">Avalible Bus Routes</label>
+          <select name="bus_route" id="bus_route" required>
+            <option value="kakinada-Vizag">kakinada-Vizag</option>
+            <option value="kakinada-Hyderabad">kakinada-Hyderabad</option>          
+            <option value="kakinada-Bangalore">kakinada-Bangalore</option>
+          </select></p>
+        <!---------------------------------------------------------------------------------------------------->
+        <p><strong><span></span><strong<span style="color:rgb(33,10,237);",for="adult">Adults :</span></span>
+          <input type="number" min="0" id="adult" name="adult"></p>
+        <!---------------------------------------------------------------------------------------------------->
+        <p><strong><span ></span><lable style="color:rgb(33,10,237)",for="child">children :</lable></strong></b>
+          <input type="number" min="0" id="child" name="child"></p>
+        <!---------------------------------------------------------------------------------------------------->
+        <p><input type="submit" value="Submit"></c<input></input>
+        <!---------------------------------------------------------------------------------------------------->
+      </form></p>
+    </div>
+
+  </body>
+</html>

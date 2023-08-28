@@ -1,0 +1,67 @@
+body, h1, p, label, input, select {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("/static/images/bus.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+#info {
+  width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1c101a;
+}
+
+form {
+  text-align:left;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #1627e0;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #88e8f0;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #8000ff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 480px) {
+  #info {
+    width:90%;
+}
+}
