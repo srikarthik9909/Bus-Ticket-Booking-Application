@@ -42,7 +42,7 @@ def submit_form():
     else:
       return render_template('index.html')
     
-    return render_template('verification.html', name=name, phone=phone, bus_route=bus_route, adults=adults, children=children, total_amount=total_amount)
+    return render_template('verification.html', name=name, phone=phone, bus_route=bus_route, adults=adults, children=children, total_amount=total_amoun)
 
 @app.route("/success")
 def success():
